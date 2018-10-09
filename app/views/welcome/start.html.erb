@@ -1,0 +1,107 @@
+<div class="first-div">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="sub-div" style="text-align: left">
+                  <a class="header-button"> <%= image_tag "Untitled-1.png", width: "30" %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="main-class">
+        <div class="container">
+          <div class="row">
+            <hr>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+              <h1>Just a few things to set up your account...</h1>
+              <div class="form-group">
+                <label for="text">Full Name</label>
+                <input type="text" class="form-control form2" id="text" placeholder="Full name" name="text">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control form2" id="txtPassword" placeholder="Password" name="password">
+                <span id="password_strength"></span>
+              </div>
+              <hr class="line">
+              <p>Password must be at least 6 characters long, and can't be things
+                like "password", "123456" or "abcdef"<p>
+              <div class="div1">
+                <button type="button" class="btn btn-success btn-lg button2">Ready! -></button>
+              </div>
+            </div>
+            <div class="col-sm-3">
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(function () {
+          $(".button2").attr("disabled", true)
+            $("#txtPassword").bind("keyup", function () {
+                //TextBox left blank.
+                if ($(this).val().length == 0) {
+                    $("#password_strength").html("");
+                    $(".button2").attr("disabled", true)
+                    return;
+                }
+     
+                //Regular Expressions.
+                var regex = new Array();
+                regex.push("[A-Z]"); //Uppercase Alphabet.
+                regex.push("[a-z]"); //Lowercase Alphabet.
+                regex.push("[0-9]"); //Digit.
+                regex.push("[$@$!%*#?&]"); //Special Character.
+     
+                var passed = 0;
+     
+                //Validate for each Regular Expression.
+                for (var i = 0; i < regex.length; i++) {
+                    if (new RegExp(regex[i]).test($(this).val())) {
+                        passed++;
+                    }
+                }
+     
+     
+                //Validate for length of Password.
+                if (passed > 2 && $(this).val().length > 8) {
+                    passed++;
+                }
+     
+                //Display status.
+                var color = "";
+                var strength = "";
+                switch (passed) {
+                    case 0:
+                      $(".button2").attr("disabled", true)
+                      break;
+                    case 1:
+                        strength = "Weak";
+                        color = "red";
+                        $(".button2").attr("disabled", true)
+                        break;
+                    case 2:
+                        strength = "Good";
+                        color = "darkorange";
+                        $(".button2").attr("disabled", false)
+                        break;
+                    case 3:
+                    case 4:
+                        strength = "Strong";
+                        color = "green";
+                        $(".button2").attr("disabled", false)
+                        break;
+                    case 5:
+                        strength = "Very Strong";
+                        color = "darkgreen";
+                        $(".button2").attr("disabled", false)
+                        break;
+                }
+                $("#password_strength").html(strength);
+                $("#password_strength").css("color", color);
+            });
+        });
+      </script>
