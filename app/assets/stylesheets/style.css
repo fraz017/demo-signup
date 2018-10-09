@@ -2,13 +2,7 @@ body {
   margin: 0;
 }
 .main-div {
-  margin-top: 70px;
-}
-.background-img {
-  background-image: url("/assets/home_illo.png");
-  height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin-top: 50px;
 }
 .heading1 {
   font-size: 70px;
@@ -17,12 +11,14 @@ body {
 .form1 {
   height: 55px;
   border: 1px solid #3f46ad;
+  margin-top: 15px;
 }
 .button1 {
   padding: 14px;
   font-size: 20px;
   line-height: 1.3333333;
   border-radius: 3px;
+  margin-top: 15px;
 }
 .inputFiled {
   padding: 0;
@@ -60,7 +56,9 @@ body {
   width: 175px;
 }
 .question {
-  padding-top: 75px;
+  padding-top: 15px;
+  float: left;
+  width: 100%;
 }
 .div1 {
   text-align: center;
@@ -71,22 +69,85 @@ body {
   padding: 12px 12px 14px;
   display: inline-block;
   background-color: #3597c6;
+  cursor: pointer;
 }
 .header-button img{
   width: 20px;
 }
+.brand-icon{
+  float: left;
+  width: 100%;
+  padding: 15px 0 0 0;
+  text-align: center;
+}
 .sub-div {
   float: left;
   width: 100%;
-  margin: 20px;
-  text-align: center;
-}
-.sub-div1 {
-  float: left;
-  width: 100%;
-  margin: 20px;
-  text-align: right;
+  padding: 25px 0 0 0;
 }
 .form_error {
   color: red;
+  padding: 15px 0 0 0;
+}
+.signIn{
+  font-size: 18px;
+}
+.signIn:hover{
+  text-decoration: none;
+}
+
+.image-left{
+  float: left;
+  width:100%;
+  padding-top:20px;
+}
+.p-0{
+  padding-right: 0;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 800px){
+  .heading1{
+    font-size: 40px;
+  }
+  .image-left{
+    padding-top:40px;
+  }
+  .main-div{
+    margin-top:20px;
+  }
+}
+@media (max-width: 767px){
+  .p-0{
+    padding-right: 15px;
+  }
+  .image-left{
+    float: inherit;
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px)
+{
+  .brand-icon{
+    text-align: left;
+  }
+  .heading1{
+    font-size: 36px;
+  }
+  .buttonField{
+    padding: 0;
+  }
+  .image-left{
+    padding-top:10px;
+  }
+  .main-div{
+    margin-top:20px;
+  }
 }
